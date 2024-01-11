@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Event Ticket Counts</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        canvas {
+            margin-bottom: 30px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        li {
+            background: #ecf0f1;
+            border-left: 5px solid #3498db;
+            margin-bottom: 10px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 16px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .badge {
+            background-color: #3498db;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var source = new EventSource('/stream');
+            var ctx = document.getElementById('eventChart').getContext('2d');
+            var chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'Ticket Count',
+                        data: [],
+                        backgroundColor: 'rgba(52, 152, 219, 0.5)',
+                        borderColor: 'rgba(52, 152, 219, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{ticks: {beginAtZero: true}}]
+                    }
+                }
+            });
+
+            source.onmessage = function(event) {
+                var data = JSON.parse(event.data);
+                updateChart(chart, data);
+                updateList(data);
+            };
+
+            function updateChart(chart, data) {
+                chart.data.labels = data.map(item => item[0]);
+                chart.data.datasets.forEach((dataset) => {
+                    dataset.data = data.map(item => item[1]);
+                });
+                chart.update();
+            }
+
+            function updateList(data) {
+                var list = document.getElementById('event-list');
+                list.innerHTML = '';
+                data.forEach(function(item) {
+                    var li = document.createElement('li');
+                    li.innerHTML = item[0] + '<span class="badge">' + item[1] + '</span>';
+                    list.appendChild(li);
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Dashboard - Event Ticket Counts</h1>
+        <canvas id="eventChart"></canvas>
+        <ul id="event-list">
+            <!-- List items will be added here by JavaScript -->
+        </ul>
+    </div>
+</body>
+</html>

@@ -6,7 +6,7 @@ Description courte et concise du projet.
 
 Cloner le projet depuis le référentiel Git :
 ```bash
-git clone <URL_DU_PROJET>
+git clone [<URL_DU_PROJET>](https://github.com/AmadeusEnki/UrbaChoc.git)
 
 cd case_a_chocs
    

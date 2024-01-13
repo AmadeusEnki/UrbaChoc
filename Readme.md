@@ -1,4 +1,7 @@
 # Urbanisation de la case à choc
+## Introduction
+
+Bienvenue dans le dépôt du projet Composite développé pour la Case à Chocs. Ce projet met en avant une sélection stratégique de technologies et de langages de programmation visant à garantir performance, sécurité, et intégration harmonieuse avec les systèmes existants. Cette documentation met en lumière les technologies clés choisies pour ce projet, expliquant leurs rôles fondamentaux dans la réalisation du Proof of Concept (PoC).
 
 
 

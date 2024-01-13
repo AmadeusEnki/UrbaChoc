@@ -4,7 +4,7 @@
 
 ## Installation
 
-### Cloner le projet depuis le référentiel Git :
+### Cloner le projet depuis le référentiel Git
 ```bash
 git clone https://github.com/AmadeusEnki/UrbaChoc.git
 ```
@@ -17,7 +17,6 @@ docker pull apachepulsar/pulsar:latest
 ```bash
 docker run -p 6650:6650 -p 8080:8080 apachepulsar/pulsar
 ```
-Depuis la racine du dossier
 ```python
 pip install -r requirements.txt
 ```

@@ -1,28 +1,39 @@
 #Urbanisation de la case à choc
 
-Description courte et concise du projet.
+
 
 ## Installation
 
 Cloner le projet depuis le référentiel Git :
 ```bash
 git clone https://github.com/AmadeusEnki/UrbaChoc.git
-
+```
+```bash
 cd case_a_chocs
-   
+```
+```bash
 docker pull apachepulsar/pulsar:latest
-
+```
+```bash
 docker run -p 6650:6650 -p 8080:8080 apachepulsar/pulsar
 ```
 Depuis la racine du dossier
 ```python
 pip install -r requirements.txt
 ```
-##Pour lancer le projet
+#Pour lancer le projet
+```python
+python manage.py makemigrations
+```
+```python
+python manage.py migrate
+```
 ```python
 python manage.py runserver
-
+```
+```python
 python website1\web.py
-
+```
+```python
 python petzi_simulator.py http://127.0.0.1:8000/api/webhook/
 ```

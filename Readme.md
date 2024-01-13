@@ -4,7 +4,7 @@
 
 ## Installation
 
-Cloner le projet depuis le référentiel Git :
+### Cloner le projet depuis le référentiel Git :
 ```bash
 git clone https://github.com/AmadeusEnki/UrbaChoc.git
 ```
@@ -22,6 +22,7 @@ Depuis la racine du dossier
 pip install -r requirements.txt
 ```
 ## Pour lancer le projet
+### Pour lancer Django
 ```python
 python manage.py makemigrations
 ```
@@ -31,7 +32,7 @@ python manage.py migrate
 ```python
 python manage.py runserver
 ```
-Pour lancer le website aller dans le dossier website1
+### Pour lancer le website aller dans le dossier website1
 ```python
 cd website1
 ```

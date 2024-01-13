@@ -57,7 +57,7 @@ def get_event_data():
 def get_ticket_details(ticket_id):
     # Votre code existant pour obtenir les détails du ticket
     url = f"http://127.0.0.1:8000/api/ticket/{ticket_id}/"
-    headers = {"Authorization": "Token 82682c7fbca9598e7c286bd274f73a9060d6130f"}
+    headers = {"Authorization": "Token a8ebc4d756362461544b75823eb6b9166492d9a3"}
     try:
         response = requests.get(url, headers=headers)
         response.raise_for_status()

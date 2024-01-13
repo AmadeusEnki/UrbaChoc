@@ -50,12 +50,12 @@ if __name__ == "__main__":
            "event":"ticket_created",
            "details":{
               "ticket":{
-                 "number":"wgiubwfwdewgrgwfefbffz3",
+                 "number":"1",
                  "type":"online_presale",
                  "title":"My Parent Ticket",
-                 "category":"My Categoryyy23512367721223211232323233",
-                 "eventId":12345,
-                 "event":"Helq112l2o",
+                 "category":"Big Event",
+                 "eventId":1,
+                 "event":"big event le retour",
                  "cancellationReason":"",
                  "sessions":[
                     {
